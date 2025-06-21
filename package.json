@@ -1,0 +1,42 @@
+{
+  "name": "kiana-kaslana",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --fix",
+    "format": "prettier --write src/"
+  },
+  "dependencies": {
+    "@arco-design/web-vue": "^2.57.0",
+    "@element-plus/icons-vue": "^2.3.1",
+    "@vue/composition-api": "^1.7.2",
+    "element-plus": "^2.9.11",
+    "element-ui": "^2.15.14",
+    "pinia": "^3.0.1",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "-": "^0.0.1",
+    "@eslint/js": "^9.22.0",
+    "@stagewise/toolbar-vue": "^0.4.5",
+    "@types/node": "^24.0.0",
+    "@vitejs/plugin-vue": "^5.2.3",
+    "@vue/eslint-config-prettier": "^10.2.0",
+    "components": "^0.1.0",
+    "eslint": "latest",
+    "eslint-plugin-vue": "~10.0.0",
+    "globals": "^16.0.0",
+    "less": "^4.3.0",
+    "prettier": "3.5.3",
+    "unplugin": "^2.3.5",
+    "unplugin-auto-import": "^19.3.0",
+    "unplugin-vue-components": "^28.7.0",
+    "vite": "^6.2.4",
+    "vite-plugin-vue-devtools": "^7.7.2",
+    "vue": "^3.5.13"
+  }
+}

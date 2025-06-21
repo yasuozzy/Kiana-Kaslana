@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    button {
+      background: #140A47;
+      color: white;
+      border: none;
+      padding: 8px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1a0f5c;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Stagewise Dev Tools</h2>
+    <button id="toggleToolbar">显示/隐藏工具栏</button>
+    <button id="startSelection">开始选择元素</button>
+    <button id="startAIEdit">开始AI编辑</button>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html> 

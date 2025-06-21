@@ -1,0 +1,88 @@
+/* 产品卡片共享样式 */
+/* 产品列表内容区域 - 横向滚动容器 */
+.product-list-content {
+  display: flex;
+  overflow-x: auto;
+  /* 让内容超出时可以横向滚动 */
+  flex-wrap: nowrap;
+  /* 防止换行 */
+  gap: 10px;
+  /* 卡片之间的间距 */
+}
+/* 产品卡片样式 */
+.product {
+  width: 264px;
+  /* 固定宽度 */
+  flex: 0 0 auto;
+  /* 防止伸缩 */
+  background-color: #f1f4ee;
+  padding: 16px;
+  margin-bottom: 40px;
+  box-sizing: border-box;
+}
+/* 产品图片样式 */
+.product img {
+  width: 264px;
+  object-fit: contain;
+  /* 保持图片比例，完整显示在容器内 */
+}
+/* 产品价格信息 */
+.carousel-product-info {
+  font-size: 16px;
+  color: #242424;
+  font-weight: 500;
+  margin-bottom: 8px;
+  margin-top: 10px;
+}
+/* 产品标题 */
+.product-card-title {
+  font-size: 12px;
+  color: #242424;
+}
+/* 标题区域 */
+.product-list-title {
+  width: 100%;
+  margin: 0;
+  font-size: 16px;
+  padding: 15px 20px 0 20px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+.product-list-title h4 {
+  margin: 0;
+  font-size: 16px;
+  list-style: 16px;
+}
+.carousel-sub-title {
+  margin-bottom: 10px;
+}
+.product-list-title-price {
+  float: right;
+  /* 元素浮动到右侧 */
+  font-size: 12px;
+  color: #262422;
+}
+/* 滚动条样式 */
+.product-list-content::-webkit-scrollbar {
+  margin-top: 100px;
+  height: 8px;
+  /* 滚动条高度 */
+  background: transparent;
+  /* 滚动条轨道背景 */
+}
+.product-list-content::-webkit-scrollbar-thumb {
+  background: #cacaca;
+  /* 滚动条滑块颜色 */
+  border-radius: 4px;
+  /* 圆角 */
+  transition: background 0.3s;
+}
+.product-list-content::-webkit-scrollbar-thumb:hover {
+  background: #7f807f;
+  /* 鼠标悬停时更深的颜色 */
+}
+.product-list-content::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  /* 滚动条轨道颜色 */
+  border-radius: 4px;
+}
