@@ -1,56 +1,75 @@
 <template>
   <div class="top-bar">
     <ul class="top-bar-list">
-      <li><a href="">礼品卡</a></li>
+      <li><router-link to="/gift-card">礼品卡</router-link></li>
       <li><a href="">跟踪订单</a></li>
       <li><a href="">帮助</a></li>
 
       <li>
-        <router-link to="/login">我们的账户</router-link>
+        <!-- 判断如果用户登录，则显示"我们的账户"，否则显示"登录" -->
+        <!-- 已登录时跳转到个人中心，未登录时跳转到登录页面 -->
+        <router-link :to="isLoggedIn ? '/personal' : '/login'">
+          <template v-if="isLoggedIn">已登录</template>
+          <template v-else>我们的账户</template>
+        </router-link>
       </li>
 
-        <el-dropdown trigger="click">
-          <span class="top-bar-link">
-        语言<el-icon class="el-icon--right"><arrow-down /></el-icon>
-          </span>
-      <template #dropdown>
-        <el-dropdown-menu>
-          <el-dropdown-item @click="handleClick ">Action 1</el-dropdown-item>
-          <el-dropdown-item>Action 2</el-dropdown-item>
-          <el-dropdown-item>Action 3</el-dropdown-item>
-          <el-dropdown-item>Action 4</el-dropdown-item>
-          <el-dropdown-item>Action 5</el-dropdown-item>
-        </el-dropdown-menu>
-      </template>
-    </el-dropdown>
-        <el-dropdown trigger="click">
-          <span class="top-bar-link">
-        欧元<el-icon class="el-icon--right"><arrow-down /></el-icon>
-          </span>
-      <template #dropdown>
-        <el-dropdown-menu>
-          <el-dropdown-item>中文</el-dropdown-item>
-          <el-dropdown-item>English</el-dropdown-item>
-        </el-dropdown-menu>
-      </template>
-    </el-dropdown>
-  </ul>
+      <el-dropdown trigger="click">
+        <span class="top-bar-link">
+          语言<el-icon class="el-icon--right"><arrow-down /></el-icon>
+        </span>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item @click="handleClick">Action 1</el-dropdown-item>
+            <el-dropdown-item>Action 2</el-dropdown-item>
+            <el-dropdown-item>Action 3</el-dropdown-item>
+            <el-dropdown-item>Action 4</el-dropdown-item>
+            <el-dropdown-item>Action 5</el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
+      <el-dropdown trigger="click">
+        <span class="top-bar-link">
+          欧元<el-icon class="el-icon--right"><arrow-down /></el-icon>
+        </span>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item>中文</el-dropdown-item>
+            <el-dropdown-item>English</el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
+    </ul>
     <div class="top-bar-cart">
-        <i class="iconfont icon-gouwuche"></i>
+      <i class="iconfont icon-gouwuchekong top-bar-cart-icon"></i>
     </div>
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 // import { ArrowDown } from '@element-plus/icons-vue'
+import { computed } from 'vue' // 引入vue的computed函数，用来创建计算属性
+import { useStore } from 'vuex' // 引入vuex的useStore函数，用来获取store实例
 
 const handleClick = () => {
   alert('button click')
 }
+
+// 获取store实例
+const store = useStore()
+
+// 创建计算属性，判断用户是否登录
+const isLoggedIn = computed(() => {
+  console.log('Vuex登录状态:', store.state.isLogin)
+  console.log('localStorage数据:', localStorage.getItem('ai'))
+  // 1. store.state.isLoggedIn：先检查Vuex中的登录状态
+  // 2. 如果Vuex中没有（比如页面刷新后），localStorage.getItem('ai')从本地存储获取名为'ai'的数据
+  // 双叹号(!!)将任何值转换为布尔值 如果'ai'存在，则返回true，否则返回false
+  return store.state.isLogin || !!localStorage.getItem('ai')
+})
 </script>
 
 <style scoped lang="less">
-
 .top-bar {
   left: 0;
   width: 100%;
@@ -63,16 +82,16 @@ const handleClick = () => {
   padding-left: 0px;
 }
 
-.top-bar-item{
+.top-bar-item {
   display: inline-flex;
   align-content: center;
   width: 50px;
   font-size: 14px;
 }
-.top-bar-item-2{
- padding-right: 12px;
+.top-bar-item-2 {
+  padding-right: 12px;
 }
-.top-bar-cart{
+.top-bar-cart {
   height: 40px;
   width: 55px;
   line-height: 35px;
@@ -82,17 +101,17 @@ const handleClick = () => {
   right: 0;
   top: 0;
 }
-.top-bar-list{
+.top-bar-list {
   display: flex;
   align-items: center;
   justify-content: center;
   list-style: none; // 去掉列表前面的点
   // // background-color: #d62525;
   padding: 0;
- margin: 0;
+  margin: 0;
   transform: translateX(-70px);
 }
-.top-bar-list li{
+.top-bar-list li {
   margin-right: 20px;
   align-items: center;
   display: flex;
@@ -101,7 +120,6 @@ const handleClick = () => {
   padding-left: 10px;
   padding-right: 15px;
   margin: 0;
-
 }
 .top-bar :deep(.el-button) {
   background: transparent !important;
@@ -160,14 +178,13 @@ const handleClick = () => {
   background: transparent;
   outline: none;
 }
-.body{
+.body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-.el-dropdown-menu{
-padding: 0 !important;
-
+.el-dropdown-menu {
+  padding: 0 !important;
 }
 :deep(.el-dropdown__popper) {
   position: absolute !important;
@@ -175,5 +192,9 @@ padding: 0 !important;
   top: 40px !important;
   margin-top: 0 !important;
   inset: unset !important;
+}
+.top-bar-cart-icon {
+  color: #ffffff;
+  font-size: 40px;
 }
 </style>

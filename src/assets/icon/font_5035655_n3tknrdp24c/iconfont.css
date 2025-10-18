@@ -1,0 +1,67 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 5035655 */
+  src: url('iconfont.woff2?t=1759982638251') format('woff2'),
+       url('iconfont.woff?t=1759982638251') format('woff'),
+       url('iconfont.ttf?t=1759982638251') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-gouwuchekong:before {
+  content: "\e600";
+}
+
+.icon-youbian:before {
+  content: "\e604";
+}
+
+.icon-zuobian:before {
+  content: "\e614";
+}
+
+.icon-dingdan:before {
+  content: "\e737";
+}
+
+.icon-dizhi:before {
+  content: "\e652";
+}
+
+.icon-huiyuanjulebu:before {
+  content: "\e72f";
+}
+
+.icon-dingyue:before {
+  content: "\e63f";
+}
+
+.icon-zhifu:before {
+  content: "\e8f9";
+}
+
+.icon-yifu:before {
+  content: "\e666";
+}
+
+.icon-tubiao-:before {
+  content: "\e610";
+}
+
+.icon-premier-league:before {
+  content: "\e603";
+}
+
+.icon-qiuyuan:before {
+  content: "\e76e";
+}
+
+.icon-yingchao:before {
+  content: "\e717";
+}
+

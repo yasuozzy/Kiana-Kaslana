@@ -1,86 +1,99 @@
 <template>
-<div class="product-list-content">
-          <div class="product" v-for="( item , index) in  products " :key="index">
-            <a href="#">
-              <img :src='item.image' :alt="item.title">
-            </a>
-            <div class="carousel-product-info">{{ item.price }}</div>
-            <div class="product-card-title">{{ item.title }}</div>
-          </div>
-          <div class="carousel-arrow-container">
-            <button class="left ">左</button>
-            <button class="right ">右</button>
-          </div>
-        </div>
-
+  <div class="product-list-content">
+    <div class="product" v-for="(item, index) in products" :key="index">
+      <a href="#">
+        <img :src="item.image" :alt="item.title" />
+      </a>
+      <div class="carousel-product-info">{{ item.price }}</div>
+      <div class="product-card-title">{{ item.title }}</div>
+    </div>
+    <div class="carousel-arrow-container">
+      <button class="left">左</button>
+      <button class="right">右</button>
+    </div>
+  </div>
 </template>
 
 <script setup>
 const products = [
   {
-    image:  'https://store.chelseafc.com/content/ws/all/7ca00056-6a8a-4c63-b5b5-b414dc298c4a__1600X2160.png?w=1600',
+    image:
+      'https://store.chelseafc.com/content/ws/all/7ca00056-6a8a-4c63-b5b5-b414dc298c4a__1600X2160.png?w=1600',
     title: '切尔西 Nike Dri-Fit Adv 客场比赛球衣 2025-26',
-    price: '147.00 欧元'
-  },{
-    image:  'https://store.chelseafc.com/content/ws/all/7ca00056-6a8a-4c63-b5b5-b414dc298c4a__1600X2160.png?w=1600',
+    price: '147.00 欧元',
+  },
+  {
+    image:
+      'https://store.chelseafc.com/content/ws/all/7ca00056-6a8a-4c63-b5b5-b414dc298c4a__1600X2160.png?w=1600',
     title: '切尔西 Nike Dri-Fit Adv 客场比赛球衣 2025-26',
-    price: '147.00 欧元'
-  },{
-    image:  'https://store.chelseafc.com/content/ws/all/7ca00056-6a8a-4c63-b5b5-b414dc298c4a__1600X2160.png?w=1600',
+    price: '147.00 欧元',
+  },
+  {
+    image:
+      'https://store.chelseafc.com/content/ws/all/7ca00056-6a8a-4c63-b5b5-b414dc298c4a__1600X2160.png?w=1600',
     title: '切尔西 Nike Dri-Fit Adv 客场比赛球衣 2025-26',
-    price: '147.00 欧元'
-  },{
-    image:  'https://store.chelseafc.com/content/ws/all/7ca00056-6a8a-4c63-b5b5-b414dc298c4a__1600X2160.png?w=1600',
+    price: '147.00 欧元',
+  },
+  {
+    image:
+      'https://store.chelseafc.com/content/ws/all/7ca00056-6a8a-4c63-b5b5-b414dc298c4a__1600X2160.png?w=1600',
     title: '切尔西 Nike Dri-Fit Adv 客场比赛球衣 2025-26',
-    price: '147.00 欧元'
-  },{
-    image:  'https://store.chelseafc.com/content/ws/all/7ca00056-6a8a-4c63-b5b5-b414dc298c4a__1600X2160.png?w=1600',
+    price: '147.00 欧元',
+  },
+  {
+    image:
+      'https://store.chelseafc.com/content/ws/all/7ca00056-6a8a-4c63-b5b5-b414dc298c4a__1600X2160.png?w=1600',
     title: '切尔西 Nike Dri-Fit Adv 客场比赛球衣 2025-26',
-    price: '147.00 欧元'
-  },{
-    image:  'https://store.chelseafc.com/content/ws/all/7ca00056-6a8a-4c63-b5b5-b414dc298c4a__1600X2160.png?w=1600',
+    price: '147.00 欧元',
+  },
+  {
+    image:
+      'https://store.chelseafc.com/content/ws/all/7ca00056-6a8a-4c63-b5b5-b414dc298c4a__1600X2160.png?w=1600',
     title: '切尔西 Nike Dri-Fit Adv 客场比赛球衣 2025-26',
-    price: '147.00 欧元'
-  },{
-    image:  'https://store.chelseafc.com/content/ws/all/7ca00056-6a8a-4c63-b5b5-b414dc298c4a__1600X2160.png?w=1600',
+    price: '147.00 欧元',
+  },
+  {
+    image:
+      'https://store.chelseafc.com/content/ws/all/7ca00056-6a8a-4c63-b5b5-b414dc298c4a__1600X2160.png?w=1600',
     title: '切尔西 Nike Dri-Fit Adv 客场比赛球衣 2025-26',
-    price: '147.00 欧元'
-  },{
-    image:  'https://store.chelseafc.com/content/ws/all/7ca00056-6a8a-4c63-b5b5-b414dc298c4a__1600X2160.png?w=1600',
+    price: '147.00 欧元',
+  },
+  {
+    image:
+      'https://store.chelseafc.com/content/ws/all/7ca00056-6a8a-4c63-b5b5-b414dc298c4a__1600X2160.png?w=1600',
     title: '切尔西 Nike Dri-Fit Adv 客场比赛球衣 2025-26',
-    price: '147.00 欧元'
-  }
+    price: '147.00 欧元',
+  },
 ]
-
 </script>
 
 <style scoped lang="less">
-  @import '@/styles/product-card.less';
-  .product-list-content {
-    position: relative;
-    padding: 15px;
-    display: flex;
-    // flex-wrap: wrap; // 允许换行，这样超过4个会自动换到下一行
-    gap: 15px; // 卡片之间的间距
-    justify-content: space-between; // 均匀分布
-  }
-  .product {
-    width: calc(25% - 12px); // 一行4个，每个占25%宽度，减去间距
-    flex: 0 0 auto; // 防止伸缩
-    box-sizing: border-box;
-    margin-bottom: 20px;
-  }
-  .product img {
-    width: 100%; // 图片宽度100%适应卡片
-    height: 405px;
-    object-fit: cover; // 保持图片比例，裁剪显示
-  }
+@import '@/styles/product-card.less';
+.product-list-content {
+  position: relative;
+  padding: 15px;
+  display: flex;
+  // flex-wrap: wrap; // 允许换行，这样超过4个会自动换到下一行
+  gap: 15px; // 卡片之间的间距
+  justify-content: space-between; // 均匀分布
+}
+.product {
+  width: calc(25% - 12px); // 一行4个，每个占25%宽度，减去间距
+  flex: 0 0 auto; // 防止伸缩
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+.product img {
+  width: 100%; // 图片宽度100%适应卡片
+  height: 405px;
+  object-fit: cover; // 保持图片比例，裁剪显示
+}
 
-  .product {
+.product {
   width: calc(25% - 12px); // 默认一行4个
 }
 
-.carousel-arrow-container{
+.carousel-arrow-container {
   line-height: 28px;
 }
 
@@ -127,5 +140,4 @@ const products = [
     width: calc(50% - 10px); // 手机上一行2个
   }
 }
-
 </style>

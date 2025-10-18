@@ -14,10 +14,12 @@
     "@arco-design/web-vue": "^2.57.0",
     "@element-plus/icons-vue": "^2.3.1",
     "@vue/composition-api": "^1.7.2",
+    "axios": "^1.12.2",
     "element-plus": "^2.9.11",
     "element-ui": "^2.15.14",
     "pinia": "^3.0.1",
-    "vue-router": "^4.5.0"
+    "vue-router": "^4.5.0",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "-": "^0.0.1",
@@ -32,6 +34,7 @@
     "globals": "^16.0.0",
     "less": "^4.3.0",
     "prettier": "3.5.3",
+    "sass-embedded": "^1.91.0",
     "unplugin": "^2.3.5",
     "unplugin-auto-import": "^19.3.0",
     "unplugin-vue-components": "^28.7.0",
