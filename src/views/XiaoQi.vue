@@ -746,4 +746,192 @@ a {
   margin-top: 16px;
   font-size: 14px;
 }
+
+/* ========== 移动端响应式布局 ========== */
+@media (max-width: 768px) {
+  /* 导航栏 */
+  .global-nav {
+    height: 70px;
+  }
+
+  .global-nav__link-wrapper {
+    margin-left: 15px;
+    height: 40px;
+  }
+
+  .global-nav__link {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+
+  .global-nav__logo-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+
+  .global-nav__logo-wrapper img {
+    width: 60px;
+    height: 60px;
+  }
+
+  /* 页面容器 */
+  .login-page-container {
+    height: auto;
+    min-height: calc(100vh - 70px);
+    padding: 20px 10px;
+  }
+
+  .background-pattern {
+    height: 300px;
+  }
+
+  /* 登录卡片 */
+  .login-card {
+    width: 95%;
+    max-width: 450px;
+    height: auto;
+  }
+
+  /* 标签 */
+  .login-tabs {
+    width: 280px;
+    top: -30px;
+    height: 50px;
+  }
+
+  .tab {
+    width: 140px;
+    height: 50px;
+    font-size: 30px;
+    padding: 5px;
+  }
+
+  .tab:first-child,
+  .tab:nth-child(2) {
+    height: 50px;
+  }
+
+  /* 表单内容 */
+  .form-content {
+    padding: 40px 30px 30px 30px;
+  }
+
+  /* 表单组 */
+  .form-group label {
+    font-size: 14px;
+  }
+
+  .form-group input {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  /* 忘记密码链接 */
+  .forgot-password a {
+    font-size: 12px;
+  }
+
+  /* 登录按钮 */
+  .login-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  /* 提示信息框 */
+  .info-box {
+    padding: 12px;
+    margin: 20px 0;
+  }
+
+  .info-box p {
+    font-size: 14px;
+  }
+
+  /* 注册链接 */
+  .register-link {
+    font-size: 13px;
+    margin-top: 20px;
+  }
+
+  /* 底部 */
+  .bottom {
+    height: auto;
+    margin-top: 30px;
+  }
+
+  .footer {
+    height: auto;
+    padding: 20px 24px;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+
+  .social-icons {
+    gap: 12px;
+  }
+
+  .social-icon {
+    font-size: 20px;
+  }
+
+  .back-to-top {
+    font-size: 12px;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 11px;
+  }
+
+  .footer-links a {
+    font-size: 11px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .form-content {
+    padding: 40px 20px 20px 20px;
+  }
+
+  .login-tabs {
+    width: 240px;
+    height: 45px;
+  }
+
+  .tab {
+    width: 120px;
+    height: 45px;
+    font-size: 24px;
+  }
+
+  .tab:first-child,
+  .tab:nth-child(2) {
+    height: 45px;
+  }
+
+  .info-box p {
+    font-size: 13px;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
 </style>

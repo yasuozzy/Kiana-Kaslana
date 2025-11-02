@@ -61,4 +61,52 @@ const updateCount = (count) => {
 .wo {
   width: 106px;
 }
+
+/* ========== 移动端响应式布局 ========== */
+@media (max-width: 768px) {
+  .ds-product-pagination {
+    padding: 16px 12px 0 12px;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  :deep(.arco-btn) {
+    height: 36px;
+    width: 100px;
+    font-size: 14px;
+    line-height: 36px;
+  }
+
+  .ds-product-count {
+    font-size: 14px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .wo {
+    width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ds-product-pagination {
+    padding: 12px 8px 0 8px;
+  }
+
+  :deep(.arco-btn) {
+    height: 32px;
+    width: 90px;
+    font-size: 13px;
+    line-height: 32px;
+  }
+
+  .ds-product-count {
+    font-size: 13px;
+  }
+
+  .wo {
+    width: 90px;
+  }
+}
 </style>

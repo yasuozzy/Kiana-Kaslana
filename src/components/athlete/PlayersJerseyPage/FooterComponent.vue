@@ -2,7 +2,7 @@
   <!-- 页脚容器 -->
   <footer class="footer-container">
     <!-- 顶部导航链接区域 -->
-  <div class="top-links">
+    <div class="top-links">
       <!-- 左侧导航链接 -->
       <div class="nav-links">
         <div class="link-item">常见问题和联系方式</div>
@@ -32,13 +32,14 @@
 
       <!-- 支付方式图标 -->
       <div class="payment-methods">
-        <img src="https://shop.mancity.com/on/demandware.static/-/Sites-MAN-Library/default/dwad1998f0/images/footer/payment-methods.svg" alt="">
+        <img
+          src="https://shop.mancity.com/on/demandware.static/-/Sites-MAN-Library/default/dwad1998f0/images/footer/payment-methods.svg"
+          alt=""
+        />
       </div>
 
       <!-- 版权信息 -->
-      <div class="copyright">
-        © 2024 Siebel Sportmerchandising Bv
-      </div>
+      <div class="copyright">© 2024 Siebel Sportmerchandising Bv</div>
     </div>
   </footer>
 </template>
@@ -145,18 +146,37 @@
   }
 }
 
-// 响应式设计
+/* ========== 移动端响应式布局 ========== */
 @media (max-width: 768px) {
   .footer-container {
     .top-links {
+      height: auto;
       flex-direction: column;
       align-items: flex-start;
-      gap: 10px;
-      padding: 15px 20px;
+      gap: 15px;
+      padding: 20px;
+      padding-left: 20px;
+      padding-right: 20px;
+
+      .nav-links {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+      }
+
+      .link-item {
+        font-size: 16px;
+      }
 
       .social-icons {
         align-self: center;
         margin-top: 10px;
+        gap: 8px;
+      }
+
+      .icon {
+        width: 20px;
+        height: 20px;
       }
     }
 
@@ -166,6 +186,51 @@
       .bottom-links {
         flex-wrap: wrap;
         justify-content: center;
+        gap: 12px;
+      }
+
+      .bottom-link {
+        font-size: 13px;
+      }
+
+      .payment-methods {
+        margin-bottom: 8px;
+      }
+
+      .copyright {
+        font-size: 11px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    .top-links {
+      padding: 15px;
+
+      .nav-links {
+        gap: 10px;
+      }
+
+      .link-item {
+        font-size: 14px;
+      }
+    }
+
+    .bottom-section {
+      padding: 12px 15px;
+
+      .bottom-links {
+        gap: 10px;
+      }
+
+      .bottom-link {
+        font-size: 12px;
+      }
+
+      .copyright {
+        font-size: 10px;
       }
     }
   }

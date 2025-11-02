@@ -214,45 +214,81 @@ const jumpToProductDetail = (productItem) => {
   }
 }
 
-/* 响应式设计 - 手机屏幕 */
+/* ========== 移动端响应式布局 ========== */
 @media (max-width: 768px) {
   .merchandise-container {
-    padding: 15px; /* 减少内边距 */
+    padding: 15px 20px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 
   .product-grid {
-    gap: 15px; /* 减少间距 */
+    gap: 15px;
   }
 
   .product-card {
-    flex: 0 0 calc(50% - 7.5px); /* 两列布局 */
+    flex: 0 0 calc(50% - 7.5px);
   }
 
   .product-image {
-    height: 200px; /* 减小图片高度 */
+    padding: 25px;
+  }
+
+  .product-image img {
+    width: 100%;
+    height: auto;
   }
 
   .product-info {
-    padding: 12px; /* 减少内边距 */
+    padding: 12px;
   }
 
   .product-title {
-    font-size: 13px; /* 减小标题字体 */
+    font-size: 14px;
   }
 
   .product-price {
-    font-size: 15px; /* 减小价格字体 */
+    font-size: 15px;
+  }
+
+  .pagination-container {
+    padding: 30px 15px 0 15px;
   }
 }
 
-/* 响应式设计 - 小屏手机 */
 @media (max-width: 480px) {
+  .merchandise-container {
+    padding: 12px 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .product-grid {
+    gap: 12px;
+  }
+
   .product-card {
-    flex: 0 0 100%; /* 单列布局 */
+    flex: 0 0 100%;
   }
 
   .product-image {
-    height: 180px; /* 进一步减小高度 */
+    padding: 20px;
+  }
+
+  .product-info {
+    padding: 10px;
+  }
+
+  .product-title {
+    font-size: 13px;
+  }
+
+  .product-price {
+    font-size: 14px;
+  }
+
+  .pagination-container {
+    padding: 25px 10px 0 10px;
   }
 }
 /* 分页容器 */

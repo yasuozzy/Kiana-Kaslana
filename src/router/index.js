@@ -342,6 +342,17 @@ const router = createRouter({
       meta: { title: '购物车' },
     },
 
+    // ==================== 结账页面 ====================
+    {
+      path: '/shopping-cart/checkout',
+      name: 'Checkout',
+      component: () =>
+        import(
+          '@/components/Common/ShoppingCart/Payment-After-AddressSelection/CheckoutAddressStep.vue'
+        ),
+      meta: { title: '结账' },
+    },
+
     // ==================== 礼品卡页面 ====================
     {
       path: '/gift-card',

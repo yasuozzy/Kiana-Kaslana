@@ -195,4 +195,80 @@ import SiteFooter from '../Footer/SiteFooter.vue'
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 20, 137, 0.3);
 }
+
+/* ========== 移动端响应式布局 ========== */
+@media (max-width: 768px) {
+  .frequently-asked-main {
+    padding: 30px 15px;
+  }
+
+  .faq-container {
+    padding: 30px 25px;
+  }
+
+  .faq-title {
+    font-size: 28px;
+    margin-bottom: 35px;
+  }
+
+  .faq-content {
+    margin-bottom: 30px;
+  }
+
+  .faq-item {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+  }
+
+  .faq-item h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .faq-item p,
+  .faq-item ul li {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .back-to-gift {
+    margin-top: 30px;
+  }
+
+  .back-button {
+    padding: 12px 30px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .frequently-asked-main {
+    padding: 20px 10px;
+  }
+
+  .faq-container {
+    padding: 25px 20px;
+  }
+
+  .faq-title {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .faq-item h2 {
+    font-size: 16px;
+  }
+
+  .faq-item p,
+  .faq-item ul li {
+    font-size: 13px;
+  }
+
+  .back-button {
+    padding: 10px 25px;
+    font-size: 14px;
+    width: 100%;
+    max-width: 280px;
+  }
+}
 </style>

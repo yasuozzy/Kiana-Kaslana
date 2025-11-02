@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button class="continue-shopping-btn">继续购物</button>
+        <button class="continue-shopping-btn" @click="handleCloseClick">继续购物</button>
         <button class="view-cart-btn" @click="handleViewCart">查看购物车</button>
       </div>
     </div>
@@ -212,5 +212,82 @@ const props = defineProps({
 
 .view-cart-btn:hover {
   background-color: #ffe000; /* 鼠标悬停时背景变深 */
+}
+
+/* ========== 移动端响应式布局 ========== */
+@media (max-width: 768px) {
+  .add-to-cart-modal-content {
+    width: 95%;
+    max-width: 450px;
+  }
+
+  .modal-header {
+    padding: 15px 20px;
+  }
+
+  .modal-title {
+    font-size: 18px;
+  }
+
+  .modal-body {
+    padding: 20px;
+  }
+
+  .product-details {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .product-image {
+    width: 100%;
+    height: auto;
+    max-width: 150px;
+  }
+
+  .product-name {
+    font-size: 16px;
+  }
+
+  .product-price {
+    font-size: 20px;
+  }
+
+  .modal-footer {
+    flex-direction: column;
+    padding: 15px 20px;
+  }
+
+  .continue-shopping-btn,
+  .view-cart-btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .add-to-cart-modal-content {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .modal-header {
+    padding: 12px 15px;
+  }
+
+  .modal-title {
+    font-size: 16px;
+  }
+
+  .modal-body {
+    padding: 15px;
+  }
+
+  .product-name {
+    font-size: 15px;
+  }
+
+  .product-price {
+    font-size: 18px;
+  }
 }
 </style>

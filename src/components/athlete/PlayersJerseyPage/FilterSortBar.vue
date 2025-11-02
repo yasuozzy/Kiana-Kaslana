@@ -202,16 +202,78 @@ onMounted(() => {
   font-size: 16px;
   font-weight: 700;
 }
-/* 响应式设计 - 小屏幕适配 */
+
+/* ========== 移动端响应式布局 ========== */
 @media (max-width: 768px) {
+  .container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* 面包屑 */
+  .breadcrumb {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
+    padding-bottom: 20px;
+  }
+
+  .breadcrumb-item,
+  .breadcrumb-separator,
+  .breadcrumb-current {
+    font-size: 13px;
+  }
+
+  /* 筛选排序容器 */
   .filter-sort-container {
-    padding: 0 20px; /* 减少左右内边距 */
-    height: 50px; /* 减少高度 */
+    height: 70px;
+    padding: 0 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .filter-button {
+    margin-right: 0;
   }
 
   .filter-text,
   .sort-text {
-    font-size: 14px; /* 减小字体 */
+    font-size: 16px;
+  }
+
+  :deep(.arco-dropdown-option-content) {
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .breadcrumb {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .breadcrumb-item,
+  .breadcrumb-separator,
+  .breadcrumb-current {
+    font-size: 12px;
+  }
+
+  .filter-sort-container {
+    height: 80px;
+    padding: 0 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .filter-text,
+  .sort-text {
+    font-size: 14px;
+    padding: 6px 12px;
   }
 }
 

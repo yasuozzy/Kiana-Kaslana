@@ -44,4 +44,22 @@ import TopBar from '../components/layout/TopBar.vue' // 路径可能需要调整
 import SiteFooter from '../components/Footer/SiteFooter.vue' // 路径可能需要调整
 </script>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+/* HomePage本身是组件组合页面，主要响应式由各个子组件处理 */
+/* 但我们可以添加一些全局调整 */
+
+/* ========== 移动端响应式布局 ========== */
+@media (max-width: 768px) {
+  /* 确保所有组件在移动端有适当间距 */
+  > div {
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 480px) {
+  /* 极小屏幕优化 */
+  > div {
+    width: 100%;
+  }
+}
+</style>

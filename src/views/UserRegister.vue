@@ -938,4 +938,200 @@ a {
   font-size: 10px;
   font-weight: 400;
 }
+
+/* ========== 移动端响应式布局 ========== */
+@media (max-width: 768px) {
+  /* 导航栏 */
+  .global-nav {
+    height: 70px;
+  }
+
+  .global-nav__link-wrapper {
+    margin-left: 15px;
+    height: 40px;
+  }
+
+  .global-nav__link {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+
+  .global-nav__logo-wrapper {
+    width: 60px;
+    height: 40px;
+  }
+
+  .city-logo {
+    width: 35px;
+    height: 35px;
+  }
+
+  /* 页面容器 */
+  .login-page-container {
+    min-height: calc(100vh - 70px);
+    padding: 20px 10px;
+  }
+
+  .background-pattern {
+    height: 300px;
+  }
+
+  /* 注册卡片 */
+  .login-card {
+    width: 95%;
+    max-width: 450px;
+    margin: 20px 0;
+  }
+
+  /* 标签 */
+  .login-tabs {
+    width: 280px;
+    top: -30px;
+    height: 50px;
+  }
+
+  .tab {
+    width: 140px;
+    height: 50px;
+    font-size: 30px;
+    padding: 5px;
+  }
+
+  .tab:first-child,
+  .tab:nth-child(2) {
+    height: 50px;
+  }
+
+  /* 表单内容 */
+  .form-content {
+    padding: 40px 30px 30px 30px;
+  }
+
+  /* 表单组 */
+  .form-group label {
+    font-size: 14px;
+  }
+
+  .date-select,
+  .form-input {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  /* 帮助文本 */
+  .helper-text {
+    font-size: 11px;
+  }
+
+  /* 隐私政策提示框 */
+  .privacy-notice {
+    padding: 12px;
+    margin: 20px 0;
+  }
+
+  .privacy-notice p {
+    font-size: 12px;
+  }
+
+  /* 注册按钮 */
+  .register-btn {
+    font-size: 14px;
+    padding: 10px;
+    margin-top: 20px;
+  }
+
+  /* 底部 */
+  .bottom {
+    padding-top: 15px;
+  }
+
+  .footer {
+    padding: 20px 24px;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+
+  .social-icons {
+    gap: 12px;
+  }
+
+  .social-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .back-to-top {
+    font-size: 12px;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 11px;
+  }
+
+  .footer-links a {
+    font-size: 11px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .form-content {
+    padding: 40px 20px 20px 20px;
+  }
+
+  .login-tabs {
+    width: 240px;
+    height: 45px;
+  }
+
+  .tab {
+    width: 120px;
+    height: 45px;
+    font-size: 24px;
+  }
+
+  .tab:first-child,
+  .tab:nth-child(2) {
+    height: 45px;
+  }
+
+  .date-selector {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .date-select {
+    width: 100%;
+  }
+
+  .subscription-options {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .option-btn {
+    width: 100%;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
 </style>

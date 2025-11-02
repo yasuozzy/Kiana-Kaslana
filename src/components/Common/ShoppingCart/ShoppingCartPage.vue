@@ -13,7 +13,7 @@
         PayPal无法处理您的订单，请选择其他付款方式。
       </div>
 
-      <button @click="handleClearCart" class="clear-cart-btn">清空购物车</button>
+      <!-- <button @click="handleClearCart" class="clear-cart-btn">清空购物车</button> -->
 
       <div class="cart-containergo">
         <!-- PayPal提示信息 -->
@@ -180,6 +180,7 @@
       </div>
     </div>
   </div>
+  <SiteFooter />
 </template>
 
 <script setup>
@@ -189,12 +190,15 @@ import MainNav from '@/components/layout/MainNav.vue'
 import { validateCoupon, calculateDiscount } from '@/store/utils/couponManager.js'
 import { computed, onMounted } from 'vue'
 import { useStore } from 'vuex' // 使用 cartVuex状态管理
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { ref } from 'vue'
 import { products } from '@/data/products.js'
-import { getCartItems, updateCartQuantity, removeFromCart, clearCart } from '@/api/caret.js'
+import { getCartItems, updateCartQuantity, removeFromCart } from '@/api/caret.js'
+import SiteFooter from '@/components/Footer/SiteFooter.vue'
 
 const route = useRoute()
+const router = useRouter() // 获取路由实例，用于页面跳转 比如说跳转到付款的
+
 // 判断是不是从个人中心过来的（检查路线包不包含"/personal/"）
 const isInPersonalPage = route.path.includes('/personal/')
 
@@ -313,7 +317,8 @@ const handleCheckout = () => {
     alert('购物车是空的，请先添加商品')
     return
   }
-  alert('跳转到结账页面（功能待开发）')
+  // 跳转到结账页面
+  router.push({ name: 'Checkout' })
 }
 
 const appliedCoupon = ref(null) // 当前使用的优惠券（开始是空的）
@@ -453,25 +458,25 @@ onMounted(async () => {
 })
 
 // 清空购物车
-const handleClearCart = async () => {
-  if (!confirm('确定要清空整个购物车吗？')) {
-    return
-  }
-  try {
-    alert('正在清空购物车...')
+// const handleClearCart = async () => {
+//   if (!confirm('确定要清空整个购物车吗？')) {
+//     return
+//   }
+//   try {
+//     alert('正在清空购物车...')
 
-    // 调用后端API
-    const result = await clearCart()
-    alert('清空成功！', result)
+//     // 调用后端API
+//     const result = await clearCart()
+//     alert('清空成功！', result)
 
-    // 同时清空本地Vuex
-    store.commit('cart/CLEAR_CART')
-    alert('购物车已清空')
-  } catch (error) {
-    console.error('清空失败:', error)
-    alert('清空失败，请重试')
-  }
-}
+//     // 同时清空本地Vuex
+//     store.commit('cart/CLEAR_CART')
+//     alert('购物车已清空')
+//   } catch (error) {
+//     console.error('清空失败:', error)
+//     alert('清空失败，请重试')
+//   }
+// }
 </script>
 
 <style scoped>
@@ -480,7 +485,7 @@ const handleClearCart = async () => {
   max-width: 100%; /* 限制最大宽度，让页面在大屏幕上不会太宽 */
   /* margin: 0 auto; 水平居中显示 */
   padding: 20px; /* 内边距，让内容不贴边 */
-  max-height: 385px;
+  /* max-height: 385px; 移除高度限制，让内容完全显示 */
   font-family: Arial, sans-serif; /* 设置字体 */
 }
 
@@ -506,7 +511,7 @@ const handleClearCart = async () => {
   max-width: 100%; /* 限制最大宽度，让页面在大屏幕上不会太宽 */
   /* margin: 0 auto; 水平居中显示 */
   padding: 20px; /* 内边距，让内容不贴边 */
-  max-height: 385px;
+  /* max-height: 385px; 移除高度限制 */
   font-family: Arial, sans-serif; /* 设置字体 */
 }
 .paypal-noticego {
@@ -527,7 +532,8 @@ const handleClearCart = async () => {
 /* 左侧商品区域 - 显示商品信息的部分 */
 .product-section {
   /* flex: 2; 占据2/3的宽度 */
-  width: 995px;
+  /* width: 995px; */
+  width: 1100px;
   padding-left: 60px;
   padding-right: 30px;
 }
@@ -659,16 +665,16 @@ const handleClearCart = async () => {
 /* 右侧订单摘要区域 - 显示价格和付款按钮 */
 .order-summary {
   /* flex: 0.7;  占据1/3的宽度 */
-  width: 300px; /* 最小宽度 */
-  height: 341px;
+  width: 348px; /* 最小宽度 */
+  /* height: 341px; 移除固定高度，让内容自适应 */
   margin-left: 30px;
   margin-right: 60px;
 }
 
 /* 摘要卡片 - 订单摘要的容器 */
 .summary-card {
-  width: 300px; /* 最小宽度 */
-  height: 341px;
+  /* width: 300px; 最小宽度 */
+  /* height: 341px; */
   border: 1px solid #e0e0e0; /* 边框 */
   border-radius: 8px; /* 圆角 */
   padding: 20px; /* 内边距 */
@@ -698,6 +704,7 @@ const handleClearCart = async () => {
   font-size: 16px; /* 字体大小 */
   margin: 0 0 15px 0; /* 外边距 */
   color: #333; /* 深灰色文字 */
+  background-color: #fff;
 }
 
 /* 价格行 - 每一行价格信息 */
@@ -769,18 +776,110 @@ const handleClearCart = async () => {
   text-align: center; /* 居中对齐 */
 }
 
-/* 响应式设计 - 在小屏幕上的样式调整 */
+/* ========== 移动端响应式布局 ========== */
 @media (max-width: 768px) {
+  .cart-container,
+  .cart-containergo {
+    padding: 10px;
+  }
+
   .cart-content {
-    flex-direction: column; /* 垂直排列 */
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .product-section {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .product-item {
-    flex-direction: column; /* 垂直排列 */
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .product-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .product-image img {
+    width: 100%;
+    height: auto;
   }
 
   .product-options {
-    flex-direction: column; /* 垂直排列 */
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .size-select,
+  .quantity-select {
+    min-width: auto;
+  }
+
+  .product-price {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .remove-btn {
+    margin-left: 0;
+  }
+
+  .order-summary {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .summary-card {
+    width: 100%;
+  }
+
+  .payment-buttons {
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-container,
+  .cart-containergo {
+    padding: 8px;
+  }
+
+  .product-item {
+    padding: 12px;
+  }
+
+  .product-title {
+    font-size: 12px;
+  }
+
+  .product-options {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .price {
+    font-size: 16px;
+  }
+
+  .summary-title {
+    font-size: 14px;
+  }
+
+  .price-row {
+    font-size: 13px;
+  }
+
+  .buy-now-btn,
+  .paypal-btn {
+    font-size: 14px;
+    padding: 10px 15px;
   }
 }
 /* 优惠券输入模块容器 (与summary-title相同尺寸和外观) */

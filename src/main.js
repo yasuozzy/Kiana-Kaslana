@@ -24,5 +24,5 @@ app.use(ElementPlus)
 app.use(ArcoVue) // 全局注册Arco Design组件
 app.use(store) // 告诉 Vue 使用这个 storeapp.use(store)  // 告诉 Vue 使用这个 store
 store.dispatch('initStore') // 初始化store 恢复登录状态 防止刷新页面后用户信息丢失
-
+app.use(createPinia())
 app.mount('#app')

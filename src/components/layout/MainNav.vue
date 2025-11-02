@@ -262,19 +262,83 @@ li a {
   overflow-y: auto;
 }
 
-/* 响应式适配 - 小屏幕时的处理 */
+/* ========== 移动端响应式布局 ========== */
 @media (max-width: 768px) {
-  .nav-item.dropdown-right .dropdown-menu {
-    /* 小屏幕时改为左对齐，避免超出屏幕 */
+  .main-menu {
+    height: auto;
+    min-height: 35px;
+  }
+
+  ul {
+    flex-wrap: wrap;
+  }
+
+  .nav-item {
+    flex: 0 0 calc(33.333% - 2px);
+    min-height: 35px;
+    font-size: 11px;
+  }
+
+  li a {
+    font-size: 0.7rem;
+  }
+
+  .nav-link {
+    font-size: 0.7rem;
+  }
+
+  .dropdown-menu {
     left: 0 !important;
-    right: auto !important;
-    min-width: 400px; /* 增加小屏幕下的最小宽度 */
-    max-width: 90vw; /* 使用视口宽度，确保不超出屏幕 */
+    right: 0 !important;
+    width: 100vw;
+  }
+
+  .dropdown-content {
+    min-width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    padding: 10px;
+    gap: 6px;
+  }
+
+  .dropdown-item {
+    font-size: 0.75rem;
+    padding: 3px 6px;
+  }
+
+  .nav-item.dropdown-right .dropdown-menu {
+    left: 0 !important;
+    right: 0 !important;
+    min-width: 100%;
+    max-width: 100vw;
   }
 
   .nav-item.dropdown-right .dropdown-content {
-    min-width: 400px;
-    max-width: 90vw;
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-item {
+    flex: 0 0 calc(50% - 2px);
+    font-size: 10px;
+  }
+
+  li a {
+    font-size: 0.65rem;
+  }
+
+  .nav-link {
+    font-size: 0.65rem;
+  }
+
+  .dropdown-content {
+    grid-template-columns: 1fr;
+    min-width: 100%;
+  }
+
+  .dropdown-item {
+    font-size: 0.7rem;
   }
 }
 </style>

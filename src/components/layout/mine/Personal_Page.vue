@@ -462,4 +462,135 @@ const logout = () => {
 .suggestion-icon {
   font-size: 31px;
 }
+
+/* ========== 移动端响应式布局 ========== */
+@media (max-width: 768px) {
+  .wo {
+    padding-top: 20px;
+  }
+
+  .chelsea-personal-page {
+    padding: 15px;
+    min-height: auto;
+  }
+
+  /* 用户信息区域 */
+  .user-profile-header {
+    margin-bottom: 20px;
+  }
+
+  .user-avatar {
+    height: auto;
+    padding: 15px 20px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .user-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .user-email {
+    font-size: 15px;
+  }
+
+  /* 功能卡片网格 */
+  .function-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .function-card {
+    height: auto;
+    min-height: 140px;
+    padding: 15px;
+  }
+
+  .suggestion-icon {
+    font-size: 26px;
+  }
+
+  .card-content h3 {
+    font-size: 16px;
+  }
+
+  .card-content p {
+    font-size: 13px;
+  }
+
+  /* 品牌展示区域 */
+  .chelsea-brand-section {
+    padding: 20px;
+  }
+
+  .brand-title {
+    font-size: 24px;
+  }
+
+  .brand-subtitle {
+    font-size: 14px;
+  }
+
+  /* 退出登录按钮 */
+  .logout-section {
+    height: auto;
+    padding: 15px 0;
+  }
+
+  .logout-button {
+    width: 100%;
+    max-width: 320px;
+    font-size: 15px;
+    padding: 10px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chelsea-personal-page {
+    padding: 10px;
+  }
+
+  .user-avatar {
+    padding: 12px 15px;
+  }
+
+  .user-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .user-email {
+    font-size: 14px;
+  }
+
+  .function-cards-grid {
+    gap: 10px;
+  }
+
+  .function-card {
+    padding: 12px;
+    min-height: 120px;
+  }
+
+  .suggestion-icon {
+    font-size: 24px;
+  }
+
+  .card-content h3 {
+    font-size: 15px;
+  }
+
+  .card-content p {
+    font-size: 12px;
+  }
+
+  .logout-button {
+    width: 100%;
+    font-size: 14px;
+  }
+}
 </style>

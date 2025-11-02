@@ -17,8 +17,12 @@
     <!-- 轮播图的按钮 -->
     <div class="container">
       <div class="toggle-container">
-        <button class="left" @click="handleLeftClick">左</button>
-        <button class="right" @click="handleRightClick1">右</button>
+        <button class="left" @click="handleLeftClick">
+          <i class="iconfont icon-zuobian good"></i>
+        </button>
+        <button class="right" @click="handleRightClick1">
+          <i class="iconfont icon-youbian good"></i>
+        </button>
       </div>
     </div>
 
@@ -43,19 +47,20 @@
 import { ref, onMounted } from 'vue'
 // 顶部用 import 导入图片，底部用 import 导入图片
 import img1 from '../../assets/logo/qex1.jpg'
-import img2 from '../../assets/logo/qex2.jpg'
+// import img2 from '../../assets/logo/qex2.jpg'
 import img3 from '../../assets/logo/qieerxienzo.jpg'
+import img4 from '../../assets/logo/hezhao.avif'
 // 数组里面存放内容最新信息
 const articles = ref([
   {
     category: '采访',
-    title: '达里奥·埃苏戈希望在切尔西创造历史',
+    title: '拉希姆·斯特林：蓝图的一部分',
     img: img1,
   },
   {
     category: '采访',
-    title: '恩佐·费尔南德斯：蓝图的一部分',
-    img: img2,
+    title: '恩佐·费尔南德斯将带领切尔西走向未来',
+    img: img4,
   },
   {
     category: '采访',
@@ -292,5 +297,122 @@ a {
 .fade-enter-to,
 .fade-leave-from {
   opacity: 1;
+}
+
+/* ========== 移动端响应式布局 ========== */
+@media (max-width: 768px) {
+  .hero-section {
+    height: 500px;
+  }
+
+  img {
+    height: 500px;
+  }
+
+  .hero-section-content-title {
+    width: 90%;
+    bottom: 200px;
+    right: 20px;
+    padding: 8px 15px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  .container {
+    width: calc(100% - 40px);
+    left: 20px;
+    bottom: 120px;
+  }
+
+  .left,
+  .right {
+    width: 40px;
+    height: 40px;
+  }
+
+  .interview {
+    width: calc(100% - 40px);
+    left: 20px;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .interview li {
+    width: 100%;
+    height: auto;
+    min-height: 80px;
+  }
+
+  .article-category {
+    padding: 12px 16px;
+  }
+
+  .article-category-text {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .article-title {
+    font-size: 0.9rem;
+  }
+
+  .underline {
+    bottom: -10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    height: 400px;
+  }
+
+  img {
+    height: 400px;
+  }
+
+  .hero-section-content-title {
+    width: 95%;
+    bottom: 150px;
+    right: 10px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  .container {
+    width: calc(100% - 20px);
+    left: 10px;
+    bottom: 100px;
+  }
+
+  .left,
+  .right {
+    width: 36px;
+    height: 36px;
+  }
+
+  .interview {
+    width: calc(100% - 20px);
+    left: 10px;
+  }
+
+  .interview li {
+    min-height: 70px;
+  }
+
+  .article-category {
+    padding: 10px 12px;
+  }
+
+  .article-category-text {
+    font-size: 11px;
+  }
+
+  .article-title {
+    font-size: 0.8rem;
+  }
 }
 </style>

@@ -86,3 +86,58 @@
   /* 滚动条轨道颜色 */
   border-radius: 4px;
 }
+/* ========== 移动端响应式布局 ========== */
+@media (max-width: 768px) {
+  .product {
+    width: 220px;
+    padding: 12px;
+    margin-bottom: 25px;
+  }
+  .product img {
+    width: 220px;
+  }
+  .carousel-product-info {
+    font-size: 15px;
+    margin-top: 8px;
+  }
+  .product-card-title {
+    font-size: 11px;
+  }
+  .product-list-title {
+    padding: 12px 15px 0 15px;
+  }
+  .product-list-title h4 {
+    font-size: 15px;
+  }
+  .carousel-sub-title {
+    font-size: 12px;
+  }
+  .product-list-title-price {
+    font-size: 11px;
+  }
+}
+@media (max-width: 480px) {
+  .product {
+    width: 180px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  .product img {
+    width: 180px;
+  }
+  .carousel-product-info {
+    font-size: 14px;
+  }
+  .product-card-title {
+    font-size: 10px;
+  }
+  .product-list-title {
+    padding: 10px 12px 0 12px;
+  }
+  .product-list-title h4 {
+    font-size: 14px;
+  }
+  .product-list-title-price {
+    font-size: 10px;
+  }
+}

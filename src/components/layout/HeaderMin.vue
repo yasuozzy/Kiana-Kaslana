@@ -58,13 +58,18 @@ import { getSearchSuggestions, searchProducts } from '@/api/index.js'
 
 // ✅ 这是杯子，用来装用户输入的关键词
 const searchKeyword = ref('')
+let timer = null // 防抖 用来保存定时器的ID
 // watch 是"监控器"，它会一直盯着 searchKeyword
 watch(searchKeyword, (newValue) => {
-  // newValue 就是用户最新输入的内容
-  console.log('用户刚打了：', newValue)
+  // 1. 先取消上一次的闹钟
+  clearTimeout(timer) //timer 是一个变量，它保存着之前创建的定时器。
 
-  // 调用一个函数去获取建议
-  getSuggestions(newValue)
+  // 2. 创建一个新的定时器，等待 500 毫秒后执行
+  timer = setTimeout(() => {
+    // 3. 5000ms后执行的代码
+    console.log('用户刚打了：', newValue) // newValue 就是用户最新输入的内容
+    getSuggestions(newValue) // 调用一个函数去获取建议
+  }, 500)
 })
 
 // 用一个变量存储建议列表
@@ -123,6 +128,8 @@ const selectSuggestion = (item) => {
   // 立即执行搜索
   handleSearch()
 }
+
+// 防抖
 </script>
 
 <style scoped lang="less">
@@ -285,5 +292,85 @@ const selectSuggestion = (item) => {
   font-size: 16px;
   color: #001489;
   margin-left: 10px; /* 和文字保持间距 */
+}
+
+/* ========== 移动端响应式布局 ========== */
+@media (max-width: 768px) {
+  .header-min {
+    height: 80px;
+    padding-left: 10px;
+    padding-right: 10px;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .logo-img {
+    width: 200px;
+    height: 60px;
+  }
+
+  .logo-img img {
+    height: 60px;
+    padding: 10px;
+  }
+
+  .search-container {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .search-input {
+    width: 100% !important;
+    height: 40px;
+  }
+
+  :deep(.arco-input-wrapper) {
+    height: 35px !important;
+  }
+
+  :deep(.arco-btn.arco-input-search-btn) {
+    height: 35px !important;
+  }
+
+  .suggestions-dropdown {
+    width: calc(100% - 8px);
+  }
+}
+
+@media (max-width: 480px) {
+  .header-min {
+    height: auto;
+    padding: 10px 5px;
+  }
+
+  .logo-img {
+    width: 150px;
+    height: 50px;
+  }
+
+  .logo-img img {
+    height: 50px;
+  }
+
+  .search-input {
+    height: 36px;
+  }
+
+  :deep(.arco-input-wrapper) {
+    height: 32px !important;
+  }
+
+  :deep(.arco-btn.arco-input-search-btn) {
+    height: 32px !important;
+  }
+
+  :deep(.arco-input) {
+    font-size: 14px !important;
+  }
+
+  .suggestion-item {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
 }
 </style>

@@ -139,5 +139,43 @@ const products = [
   .product {
     width: calc(50% - 10px); // 手机上一行2个
   }
+
+  .product-list-content {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .product img {
+    height: 280px;
+  }
+
+  .carousel-arrow-container .left {
+    left: 10px;
+  }
+
+  .carousel-arrow-container .right {
+    right: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .product {
+    width: 100%;
+  }
+
+  .product-list-content {
+    flex-direction: column;
+    padding: 8px;
+  }
+
+  .product img {
+    height: 320px;
+  }
+
+  .carousel-arrow-container .left,
+  .carousel-arrow-container .right {
+    width: 35px;
+    height: 35px;
+  }
 }
 </style>

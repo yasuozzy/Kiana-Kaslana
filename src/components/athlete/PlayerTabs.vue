@@ -180,4 +180,94 @@ picture {
   transform: scale(2);
   transition: transform 0.3s ease;
 }
+
+/* ========== 移动端响应式布局 ========== */
+@media (max-width: 768px) {
+  /* 标题区域 */
+  .title {
+    height: auto;
+    margin-top: 5px;
+  }
+
+  .title-text {
+    font-size: 24px;
+    padding: 15px;
+    padding-left: 20px;
+    line-height: 30px;
+  }
+
+  /* 球员列表 */
+  .player-tabs {
+    padding: 15px 0;
+  }
+
+  picture {
+    flex: 0 0 calc(50% - 10px);
+  }
+
+  img {
+    height: 220px;
+    width: 100%;
+  }
+
+  .player-number {
+    padding: 12px;
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  /* 按钮 */
+  .left {
+    left: 10px;
+    top: 100px;
+  }
+
+  .right {
+    right: 10px;
+    top: 100px;
+  }
+
+  .good {
+    font-size: 20px;
+  }
+
+  .good:hover {
+    transform: scale(1.5);
+  }
+}
+
+@media (max-width: 480px) {
+  .title-text {
+    font-size: 20px;
+    padding: 12px;
+    padding-left: 15px;
+  }
+
+  picture {
+    flex: 0 0 100%;
+  }
+
+  img {
+    height: 250px;
+    width: 100%;
+  }
+
+  .player-number {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .left,
+  .right {
+    top: 120px;
+  }
+
+  .left {
+    left: 5px;
+  }
+
+  .right {
+    right: 5px;
+  }
+}
 </style>

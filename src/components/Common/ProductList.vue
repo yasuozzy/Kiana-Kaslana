@@ -212,4 +212,79 @@ const displayProducts = computed(() => {
   background: #f0f0f0; /* 滚动条轨道颜色 */
   border-radius: 4px;
 }
+
+/* ========== 移动端响应式布局 ========== */
+@media (max-width: 768px) {
+  .product-list {
+    margin-top: 30px;
+  }
+
+  .product-list-title {
+    padding: 12px 15px 0 15px;
+  }
+
+  .product-list-title h4 {
+    font-size: 14px;
+  }
+
+  .carousel-sub-title {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  .product {
+    padding: 12px;
+    margin-bottom: 25px;
+  }
+
+  .product img {
+    width: 260px;
+  }
+
+  .carousel-product-info,
+  .product-card-title {
+    width: 260px;
+    font-size: 14px;
+  }
+
+  .carousel-product-info {
+    font-size: 16px;
+  }
+
+  .product-list-title-price {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-list {
+    margin-top: 20px;
+  }
+
+  .product-list-title {
+    padding: 10px 12px 0 12px;
+  }
+
+  .product-list-title h4 {
+    font-size: 13px;
+  }
+
+  .product {
+    padding: 10px;
+  }
+
+  .product img {
+    width: 220px;
+  }
+
+  .carousel-product-info,
+  .product-card-title {
+    width: 220px;
+    font-size: 13px;
+  }
+
+  .carousel-product-info {
+    font-size: 15px;
+  }
+}
 </style>

@@ -36,4 +36,31 @@ body {
   width: 100%;
   overflow-x: hidden; // 隐藏横向滚动条
 }
+
+/* ========== 移动端响应式布局 ========== */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px; // 移动端基础字体稍小
+  }
+
+  body {
+    -webkit-text-size-adjust: 100%; // 防止iOS自动调整字体大小
+    -ms-text-size-adjust: 100%;
+  }
+
+  #app {
+    max-width: 100%;
+    min-width: 320px; // 设置最小宽度，防止在极小屏幕上出现问题
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
+
+  #app {
+    min-width: 280px;
+  }
+}
 </style>

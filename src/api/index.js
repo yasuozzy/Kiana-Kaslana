@@ -80,7 +80,7 @@ export const registerUser = (userData) => {
     })
 }
 
-// 场景2：用户登录 POST请求
+// 场景2：用户登录 POST请求 post请求是发送数据到服务器 后端返回登录成不成功
 export const loginUser = (loginData) => {
   //loginData是用户登录时的数据比如说邮箱和密码
   return axios

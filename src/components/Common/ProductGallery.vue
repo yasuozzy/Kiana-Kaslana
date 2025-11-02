@@ -84,4 +84,76 @@ img {
   object-fit: cover; // 保持图片比例
   display: block;
 }
+
+/* ========== 移动端响应式布局 ========== */
+@media (max-width: 768px) {
+  .product-gallery {
+    min-height: 450px;
+    padding: 20px;
+    margin-bottom: 25px;
+  }
+
+  img {
+    height: 450px;
+  }
+
+  .image-text-container {
+    top: 30px;
+    left: 30px;
+    width: 80%;
+    max-width: 350px;
+    height: auto;
+    padding: 20px;
+  }
+
+  .image-text-title {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+
+  .image-card-subtitle {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+
+  .image-text-button {
+    width: 100px;
+    height: 38px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-gallery {
+    min-height: 350px;
+    padding: 15px;
+  }
+
+  img {
+    height: 350px;
+  }
+
+  .image-text-container {
+    top: 20px;
+    left: 20px;
+    width: calc(100% - 40px);
+    padding: 15px;
+  }
+
+  .image-text-title {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+
+  .image-card-subtitle {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .image-text-button {
+    width: 90px;
+    height: 36px;
+    font-size: 12px;
+  }
+}
 </style>

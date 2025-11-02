@@ -236,19 +236,75 @@ const filteredProducts = computed(() => {
   margin: 0;
 }
 
+/* ========== 移动端响应式布局 ========== */
 @media (max-width: 768px) {
+  .merchandise-container {
+    padding: 15px;
+  }
+
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
+    margin-bottom: 15px;
+  }
+
+  .product-card {
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+  }
+
+  .product-card:hover {
+    transform: translateY(-3px);
+  }
+
+  .product-image img {
+    height: auto;
+  }
+
+  .product-info {
+    padding: 12px;
+  }
+
+  .product-title {
+    font-size: 13px;
+    -webkit-line-clamp: 2;
+  }
+
+  .product-price {
+    font-size: 15px;
+  }
+
+  :deep(.arco-pagination) {
+    padding: 35px 15px 0 15px;
   }
 }
 
 @media (max-width: 480px) {
+  .merchandise-container {
+    padding: 12px;
+  }
+
   .product-grid {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 12px;
+  }
+
+  .product-info {
+    padding: 10px;
+  }
+
+  .product-title {
+    font-size: 12px;
+  }
+
+  .product-price {
+    font-size: 14px;
+  }
+
+  :deep(.arco-pagination) {
+    padding: 30px 12px 0 12px;
   }
 }
+
 :deep(.arco-pagination) {
   display: flex;
   justify-content: center;

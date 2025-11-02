@@ -20,11 +20,18 @@
         </span>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item @click="handleClick">Action 1</el-dropdown-item>
-            <el-dropdown-item>Action 2</el-dropdown-item>
-            <el-dropdown-item>Action 3</el-dropdown-item>
-            <el-dropdown-item>Action 4</el-dropdown-item>
-            <el-dropdown-item>Action 5</el-dropdown-item>
+            <el-dropdown-item @click="handleClick">中文</el-dropdown-item>
+            <el-dropdown-item>English</el-dropdown-item>
+            <el-dropdown-item>日本語</el-dropdown-item>
+            <el-dropdown-item>한국어</el-dropdown-item>
+            <el-dropdown-item>Español</el-dropdown-item>
+            <el-dropdown-item>Deutsch</el-dropdown-item>
+            <el-dropdown-item>Français</el-dropdown-item>
+            <el-dropdown-item>Italiano</el-dropdown-item>
+            <el-dropdown-item>Português</el-dropdown-item>
+            <el-dropdown-item>Русский</el-dropdown-item>
+            <el-dropdown-item>Türkçe</el-dropdown-item>
+            <el-dropdown-item>Українська</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -34,14 +41,23 @@
         </span>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item>中文</el-dropdown-item>
-            <el-dropdown-item>English</el-dropdown-item>
+            <el-dropdown-item>人民币（CNY）</el-dropdown-item>
+            <el-dropdown-item>英镑（GBP）</el-dropdown-item>
+            <el-dropdown-item>欧元（EUR）</el-dropdown-item>
+            <el-dropdown-item>美元（USD）</el-dropdown-item>
+            <el-dropdown-item>港币（HKD）</el-dropdown-item>
+            <el-dropdown-item>澳元（AUD）</el-dropdown-item>
+            <el-dropdown-item>加元（CAD）</el-dropdown-item>
+            <el-dropdown-item>瑞士法郎（CHF）</el-dropdown-item>
+            <el-dropdown-item>日元（JPY）</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
     </ul>
     <div class="top-bar-cart">
-      <i class="iconfont icon-gouwuchekong top-bar-cart-icon"></i>
+      <i class="iconfont icon-gouwuchekong top-bar-cart-icon">
+        <i class="top-bar-cart-icon-count">{{ count }}</i>
+      </i>
     </div>
   </div>
 </template>
@@ -66,6 +82,10 @@ const isLoggedIn = computed(() => {
   // 2. 如果Vuex中没有（比如页面刷新后），localStorage.getItem('ai')从本地存储获取名为'ai'的数据
   // 双叹号(!!)将任何值转换为布尔值 如果'ai'存在，则返回true，否则返回false
   return store.state.isLogin || !!localStorage.getItem('ai')
+})
+
+const count = computed(() => {
+  return store.getters['cart/cartItemsCount']
 })
 </script>
 
@@ -195,6 +215,90 @@ const isLoggedIn = computed(() => {
 }
 .top-bar-cart-icon {
   color: #ffffff;
-  font-size: 40px;
+  font-size: 26px;
+  line-height: 40px;
+  position: relative; //
+}
+.top-bar-cart-icon-count {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  width: 19px;
+  height: 19px;
+  background-color: #0b1dbd;
+  color: #ffffff;
+  font-size: 15px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+}
+
+/* ========== 移动端响应式布局 ========== */
+@media (max-width: 768px) {
+  .top-bar {
+    height: 35px;
+    padding-left: 5px;
+  }
+
+  .top-bar-list {
+    transform: translateX(-40px);
+  }
+
+  .top-bar-list li {
+    font-size: 8px;
+    padding-left: 5px;
+    padding-right: 8px;
+    margin-right: 10px;
+  }
+
+  .top-bar-list a {
+    font-size: 10px;
+  }
+
+  .top-bar-link {
+    font-size: 10px;
+    padding: 0 5px;
+    height: 35px;
+    line-height: 35px;
+  }
+
+  .top-bar-cart {
+    width: 45px;
+    height: 35px;
+  }
+
+  .top-bar-cart-icon {
+    font-size: 22px;
+    line-height: 35px;
+  }
+
+  :deep(.el-button) {
+    height: 35px;
+    font-size: 10px;
+  }
+
+  :deep(.el-icon) {
+    font-size: 10px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-bar-list li {
+    font-size: 7px;
+    padding-left: 3px;
+    padding-right: 5px;
+    margin-right: 5px;
+  }
+
+  .top-bar-list a {
+    font-size: 9px;
+  }
+
+  .top-bar-link {
+    font-size: 9px;
+  }
 }
 </style>

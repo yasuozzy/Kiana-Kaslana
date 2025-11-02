@@ -3,15 +3,21 @@
     <div class="kit-container">
       <div class="kit-image">
         <a href="#">
-        <img src="../../assets/logo/mc.jpg" alt="曼城2025/26主场套件" />
-      </a>
+          <img src="../../assets/logo/mc.jpg" alt="曼城2025/26主场套件" />
+        </a>
       </div>
     </div>
     <div class="kit-description">
-        <h4 class="kit-title">将腰带带回家</h4>
-        <p class="kit-text">在曼城历史上，我们的 2025/26 赛季主场球衣第一次采用了腰带——标志性的对角线条纹设计 外出日。与鲜明的 Sky Blue 搭配，并为下一代重新构想，它是与我们的过去的联系，也是对我们未来的致敬，并提醒我们在这里、球场内外都以不同的方式做事。</p>
-        <a href="https://shop.mancity.com/ca/en/kits/our-2025-26-home-kit-range/" class="shop-now-btn">立即选购</a>
-      </div>
+      <h4 class="kit-title">将腰带带回家</h4>
+      <p class="kit-text">
+        在曼城历史上，我们的 2025/26 赛季主场球衣第一次采用了腰带——标志性的对角线条纹设计
+        外出日。与鲜明的 Sky Blue
+        搭配，并为下一代重新构想，它是与我们的过去的联系，也是对我们未来的致敬，并提醒我们在这里、球场内外都以不同的方式做事。
+      </p>
+      <a href="https://shop.mancity.com/ca/en/kits/our-2025-26-home-kit-range/" class="shop-now-btn"
+        >立即选购</a
+      >
+    </div>
   </div>
 </template>
 
@@ -32,9 +38,8 @@
   // position: relative;
   width: 100%;
   overflow: hidden; /* 防止内容溢出 */
-
 }
-img{
+img {
   width: 100%;
   height: 424px;
   object-position: center; // 确保图片居中显示
@@ -46,9 +51,8 @@ img{
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
-   padding-top: 15px;
-    text-align: center;
-
+  padding-top: 15px;
+  text-align: center;
 
   .kit-title {
     margin: 0;
@@ -57,8 +61,7 @@ img{
     font-weight: 500;
     font-size: 33px;
     color: #001838;
- }
-
+  }
 
   .kit-text {
     font-size: 15px;
@@ -88,22 +91,55 @@ img{
   }
 }
 
-// @media (max-width: 768px) {
-//   .kit-description {
-//     padding: 30px 15px;
+/* ========== 移动端响应式布局 ========== */
+@media (max-width: 768px) {
+  img {
+    height: 300px;
+  }
 
-//     .kit-title {
-//       font-size: 32px;
-//     }
+  .kit-description {
+    padding: 30px 15px;
 
-//     .kit-text {
-//       font-size: 14px;
-//     }
+    .kit-title {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
 
-//     .shop-now-btn {
-//       padding: 12px 30px;
-//       font-size: 14px;
-//     }
-//   }
+    .kit-text {
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
 
+    .shop-now-btn {
+      padding: 12px 30px;
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  img {
+    height: 250px;
+  }
+
+  .kit-description {
+    padding: 25px 12px;
+
+    .kit-title {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .kit-text {
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    .shop-now-btn {
+      padding: 10px 25px;
+      font-size: 13px;
+    }
+  }
+}
 </style>

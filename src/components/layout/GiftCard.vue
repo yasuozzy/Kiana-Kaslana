@@ -117,4 +117,58 @@ import SiteFooter from '../Footer/SiteFooter.vue'
   height: auto;
   display: block;
 }
+
+/* ========== 移动端响应式布局 ========== */
+@media (max-width: 768px) {
+  .gift-card-main {
+    min-height: 400px;
+  }
+
+  .gift-card-container {
+    border-radius: 0;
+  }
+
+  .gift-card-content {
+    padding: 30px 20px;
+  }
+
+  .gift-card-content h1 {
+    font-size: 26px;
+    margin-bottom: 12px;
+  }
+
+  .gift-card-content p {
+    font-size: 14px;
+  }
+
+  .gift-card-button {
+    font-size: 28px !important;
+  }
+
+  .gift-footer {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gift-card-content {
+    padding: 25px 15px;
+  }
+
+  .gift-card-content h1 {
+    font-size: 22px;
+  }
+
+  .gift-card-content p {
+    font-size: 13px;
+  }
+
+  .gift-card-button {
+    font-size: 24px !important;
+  }
+
+  .gift-footer {
+    margin-top: 25px;
+  }
+}
 </style>

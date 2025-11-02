@@ -72,4 +72,50 @@ a {
   font-weight: 500;
   margin-top: 10px;
 }
+
+/* ========== 移动端响应式布局 ========== */
+@media (max-width: 768px) {
+  .title-with-subtitle {
+    left: 20px;
+    bottom: 40%;
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .button-container {
+    width: 90px;
+    font-size: 14px;
+    padding: 10px 12px;
+    line-height: 32px;
+    margin-top: 15px;
+  }
+
+  .image-card-subtitle {
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title-with-subtitle {
+    left: 15px;
+    bottom: 35%;
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  .button-container {
+    width: 80px;
+    font-size: 13px;
+    padding: 8px 10px;
+    line-height: 28px;
+    margin-top: 12px;
+  }
+
+  .image-card-subtitle {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
 </style>

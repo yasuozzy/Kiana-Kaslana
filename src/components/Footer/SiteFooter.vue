@@ -6,7 +6,11 @@
       <!-- 左侧Logo容器 -->
       <div class="footer-logo">
         <!-- 图片标签，src指定图片路径，alt提供图片描述（对SEO和无障碍访问很重要） -->
-        <img src="../../assets/logo/mancity-logo.svg" alt="曼城足球俱乐部" class="footer-logo-img">
+        <img
+          src="../../assets/logo/mancity-logo.svg"
+          alt="曼城足球俱乐部"
+          class="footer-logo-img"
+        />
       </div>
 
       <!-- 右侧社交媒体和语言选择区域 -->
@@ -35,11 +39,10 @@
           <!-- TikTok图标链接 -->
           <a href="#" class="social-icon tiktok"><span>TikTok</span></a>
         </div>
-
       </div>
       <button class="to-top">
-          <span>返回页首</span>
-        </button>
+        <span>返回页首</span>
+      </button>
     </div>
 
     <!-- 中间部分，包含政策链接和网站地图 -->
@@ -73,11 +76,11 @@
       <!-- 中间的俱乐部徽章/图标区域 -->
       <div class="club-badges">
         <!-- 五个俱乐部相关的徽章/图标，每个都有描述性alt文本 -->
-        <img src="../../assets/icons/badge1.svg" alt="徽章1" class="club-badge">
-        <img src="../../assets/icons/badge2.svg" alt="徽章2" class="club-badge">
-        <img src="../../assets/icons/badge3.svg" alt="徽章3" class="club-badge">
-        <img src="../../assets/icons/badge4.svg" alt="徽章4" class="club-badge">
-        <img src="../../assets/icons/badge5.svg" alt="徽章5" class="club-badge">
+        <img src="../../assets/icons/badge1.svg" alt="徽章1" class="club-badge" />
+        <img src="../../assets/icons/badge2.svg" alt="徽章2" class="club-badge" />
+        <img src="../../assets/icons/badge3.svg" alt="徽章3" class="club-badge" />
+        <img src="../../assets/icons/badge4.svg" alt="徽章4" class="club-badge" />
+        <img src="../../assets/icons/badge5.svg" alt="徽章5" class="club-badge" />
       </div>
 
       <!-- 右侧版权信息 -->
@@ -138,7 +141,6 @@
   align-items: center; /* 垂直居中对齐 */
   justify-content: center;
   gap: 20px; /* 在语言选择和社交图标之间添加20px间距，比margin更便捷 */
-
 }
 
 /* 语言选择器样式 */
@@ -161,28 +163,28 @@
     color: white; /* 文字颜色 */
     text-decoration: none; /* 移除下划线 */
     font-size: 14px;
-   font-weight: 700;
+    font-weight: 700;
   }
 }
-.line{
-    height: 50px;
-    border-right: 1px solid #ffffff;
-  }
-  .to-top {
-    position: absolute; /* 绝对定位 */
-    right: 40px; /* 距离右侧40px */
-    background-color: transparent;
-    font-size: 16px;
-    font-weight: 700;
-    padding: 8px 15px; /* 添加一些内边距让按钮更好看 */
-    border-radius: 25px; /* 圆角边框，与语言选择器样式一致 */
-    color: white;
-    text-decoration: none;
-    border: none; /* 移除边框 */
-    cursor: pointer; /* 鼠标悬停时显示手型光标 */
-    font-weight: 700; /* 加粗文字 */
-    border-bottom: 1px solid #000;
-  }
+.line {
+  height: 50px;
+  border-right: 1px solid #ffffff;
+}
+.to-top {
+  position: absolute; /* 绝对定位 */
+  right: 40px; /* 距离右侧40px */
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 8px 15px; /* 添加一些内边距让按钮更好看 */
+  border-radius: 25px; /* 圆角边框，与语言选择器样式一致 */
+  color: white;
+  text-decoration: none;
+  border: none; /* 移除边框 */
+  cursor: pointer; /* 鼠标悬停时显示手型光标 */
+  font-weight: 700; /* 加粗文字 */
+  border-bottom: 1px solid #000;
+}
 
 /* 社交图标样式 */
 .social-icons {
@@ -197,7 +199,7 @@
     height: 40px; /* 图标容器高度 */
     border-radius: 50%; /* 50%圆角使方形变为圆形 */
     background-color: rgba(255, 255, 255, 0.1); /* 半透明白色背景 */
-    color: #6CABDD; /* 图标颜色为曼城浅蓝色 */
+    color: #6cabdd; /* 图标颜色为曼城浅蓝色 */
     text-decoration: none; /* 移除链接下划线 */
     transition: background-color 0.3s; /* 添加过渡效果，使颜色变化更平滑 */
 
@@ -250,7 +252,7 @@
 
     /* 除了最后一个链接外，每个链接右侧添加分隔线 */
     &:not(:last-child)::after {
-      content: ""; /* 伪元素必须有content属性，即使为空 */
+      content: ''; /* 伪元素必须有content属性，即使为空 */
       position: absolute; /* 绝对定位，相对于.policy-link */
       right: 0; /* 定位在链接右侧 */
       top: 50%; /* 从顶部50%位置开始 */
@@ -316,25 +318,164 @@
   line-height: 24px;
 }
 
-/* 响应式设计 - 适应小屏幕设备 */
+/* ========== 移动端响应式布局 ========== */
 @media (max-width: 768px) {
-  .footer-top, .footer-bottom {
-    flex-direction: column; /* 在小屏幕上改为垂直排列 */
-    gap: 20px; /* 添加20px间距 */
+  .site-footer {
+    padding: 30px 0;
+    margin-top: 20px;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px 0;
+  }
+
+  .footer-logo {
+    position: static;
+    margin-bottom: 15px;
+  }
+
+  .footer-logo-img {
+    width: 80px !important;
   }
 
   .footer-social {
-    flex-direction: column; /* 社交媒体区域垂直排列 */
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .language-selector {
+    height: auto;
+    padding: 10px 15px;
+  }
+
+  .icon-globe {
+    font-size: 18px;
+  }
+
+  .language-link {
+    font-size: 13px;
+  }
+
+  .line {
+    height: 1px;
+    width: 80%;
+    border-right: none;
+    border-bottom: 1px solid #ffffff;
+  }
+
+  .social-icons {
+    gap: 8px;
+  }
+
+  .social-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .to-top {
+    position: static;
+    margin-top: 15px;
+    font-size: 14px;
+  }
+
+  .footer-nav {
+    padding: 15px 20px;
   }
 
   .policy-links {
-    flex-direction: column; /* 政策链接垂直排列 */
-    align-items: center; /* 水平居中 */
-    gap: 15px; /* 链接之间添加15px间距 */
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+
+    .policy-link {
+      padding: 8px 0;
+    }
 
     .policy-link::after {
-      display: none; /* 在小屏幕上移除分隔线 */
+      display: none;
     }
+  }
+
+  .sitemap-container {
+    font-size: 18px;
+    margin-top: 15px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  .support-text,
+  .copyright-text {
+    font-size: 14px;
+  }
+
+  .club-badges {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .club-badge {
+    height: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-footer {
+    padding: 20px 0;
+  }
+
+  .footer-logo-img {
+    width: 70px !important;
+  }
+
+  .language-selector {
+    padding: 8px 12px;
+  }
+
+  .icon-globe {
+    font-size: 16px;
+  }
+
+  .language-link {
+    font-size: 12px;
+  }
+
+  .social-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .to-top {
+    font-size: 13px;
+  }
+
+  .policy-links {
+    font-size: 16px;
+    gap: 10px;
+  }
+
+  .sitemap-container {
+    font-size: 16px;
+  }
+
+  .support-text,
+  .copyright-text {
+    font-size: 13px;
+  }
+
+  .club-badges {
+    gap: 10px;
+  }
+
+  .club-badge {
+    height: 20px;
   }
 }
 </style>

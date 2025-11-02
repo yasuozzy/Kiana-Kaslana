@@ -92,7 +92,7 @@
           </div>
 
           <!-- 添加到购物车按钮 -->
-          <button class="add-to-cart-btn" @click="addToCart">添加到购物车</button>
+          <button class="add-to-cart-btn" @click="addToCart">添加到购物车1</button>
           <button class="buy-now-btn">个性化定制</button>
 
           <!-- 替换原有的三个折叠面板 -->
@@ -333,18 +333,45 @@ const addToCart = async () => {
     alert('请先选择尺码！')
     return //直接结束，不继续往下执行
   }
+
+  // 🆕 第二步：检查登录模式
+  const currentUser = localStorage.getItem('currentUser')
+  // 如果没有登录，直接提示
+  if (!currentUser) {
+    alert('请先登录！')
+    return
+  }
+  // 解析用户信息，看看是真实登录还是模拟登录
+  const userInfo = JSON.parse(currentUser) //JSON.parse是把字符串变成对象
+  const loginMode = userInfo.loginMode || 'mock' // 如果没有标记，默认当成模拟登录
+
+  console.log('🔍 当前登录模式：', loginMode)
+  // 🎭 第三步：模拟登录 - 使用本地 Vuex
+  if (loginMode === 'mock') {
+    console.log('🎭 模拟模式：本地添加购物车')
+
+    store.dispatch('cart/addProductToCart', {
+      id: product.value.id,
+      name: product.value.name,
+      price: product.value.price,
+      image: product.value.image,
+      selectedSize: selectedSize.value,
+      selectedColor: selectedColor.value,
+      quantity: 1,
+    })
+
+    showAddToCartModal.value = true
+    console.warn('⚠️ 离线模式：购物车数据仅保存在本地')
+    return
+  }
+
+  // ✅ 第四步：真实登录 - 调用后端 API
+  console.log('🌐 真实模式：调用后端 API')
+
   try {
     // 第二步：准备要传给后端的商品信息
     //try是尝试 如果成功就执行then 如果失败就执行catch
     const productInfo = {
-      // 商品商品信息传给后端
-      // productId: product.value.id,  // 商品ID
-      // name: product.value.name,  // 商品名称
-      // price: product.value.price,  // 商品价格
-      // image: product.value.image,  // 商品图片
-      // selectedSize: selectedSize.value,  // 用户选的尺码
-      // selectedColor: selectedColor.value,  // 用户选的颜色
-      // quantity: 1,  // 商品数量
       productId: product.value.id, // 商品ID
       quantity: 1, // 数量
       selectedSize: selectedSize.value, // 尺码
@@ -810,5 +837,180 @@ const addToCart = async () => {
 }
 :deep(.product-list-title h4) {
   margin-bottom: 20px;
+}
+
+/* ========== 移动端响应式布局 ========== */
+@media (max-width: 768px) {
+  /* 面包屑导航 */
+  .txt ul {
+    padding: 16px;
+    font-size: 12px;
+  }
+
+  /* 商品容器 - 改为垂直布局 */
+  .product-container {
+    flex-direction: column;
+  }
+
+  /* 左侧图片区域 */
+  .layout-column-left {
+    width: 100%;
+    padding: 16px;
+  }
+
+  /* 图片包装器 - 垂直排列 */
+  .images-wrapper {
+    flex-direction: column-reverse;
+  }
+
+  /* 缩略图滚动区 */
+  .ds-slideshow {
+    width: 100%;
+    height: auto;
+    max-height: 120px;
+    margin-right: 0;
+    margin-top: 12px;
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+
+  .ds-slideshow-btn {
+    width: 80px;
+    height: 80px;
+    margin-right: 12px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .ds-slideshow-btn img {
+    width: 80px;
+    height: 80px;
+  }
+
+  /* 主图片 */
+  .main-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .main-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* 右侧商品信息区域 */
+  .layout-column-right {
+    width: 100%;
+  }
+
+  .product-info {
+    width: 100%;
+    padding: 16px;
+  }
+
+  /* 商品标题 */
+  .product-title {
+    font-size: 18px;
+  }
+
+  /* 品牌信息 */
+  .product-brand {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+
+  /* 价格 */
+  .product-price {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .price-value {
+    font-size: 16px;
+  }
+
+  /* 尺寸选择 */
+  .size-header {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .size-options {
+    width: 100%;
+    gap: 8px;
+  }
+
+  .size-btn {
+    width: calc(33.333% - 6px);
+    height: 44px;
+    font-size: 14px;
+  }
+
+  /* 库存信息 */
+  .stock-info {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  /* 按钮 */
+  .add-to-cart-btn,
+  .buy-now-btn {
+    font-size: 14px;
+    padding: 12px 0;
+    margin-bottom: 16px;
+  }
+
+  /* 折叠面板 */
+  :deep(.el-collapse-item__header) {
+    font-size: 14px;
+    padding: 12px 0;
+  }
+
+  :deep(.el-collapse-item__content) {
+    font-size: 12px;
+    padding: 8px 0 12px;
+  }
+
+  /* 产品列表容器 */
+  .product-list-container,
+  .product-list-container2 {
+    padding: 16px;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* 缩略图更小 */
+  .ds-slideshow {
+    max-height: 100px;
+  }
+
+  .ds-slideshow-btn {
+    width: 60px;
+    height: 60px;
+    margin-right: 8px;
+  }
+
+  .ds-slideshow-btn img {
+    width: 60px;
+    height: 60px;
+  }
+
+  /* 尺寸按钮 */
+  .size-btn {
+    width: calc(50% - 4px);
+    font-size: 13px;
+  }
+
+  /* 标题更小 */
+  .product-title {
+    font-size: 16px;
+  }
+
+  .product-brand {
+    font-size: 14px;
+  }
 }
 </style>

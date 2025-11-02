@@ -10,7 +10,6 @@
     <div class="fotball-gear-page">
       <!-- 足球装备页面的主要内容区域 -->
       <div class="letf">
-
         <el-collapse v-model="activeNames" @change="handleChange">
           <!-- 这里我们使用 v-for 来遍历 categoryFilters 数组，动态生成每一个筛选组 -->
           <!-- filterGroup 代表 categoryFilters 数组中的每一个对象，比如“排序方式”、“各种门”等 -->
@@ -18,8 +17,8 @@
           <!-- :title 绑定了筛选组的标题，比如“排序方式” -->
           <!-- :name 绑定了筛选组的唯一标识，用于控制折叠面板的展开/收起 -->
 
-             <!-- 这个盒子显示你选了什么 -->
-            <div class="selected-tags" v-if="selectedFilters.length > 0">
+          <!-- 这个盒子显示你选了什么 -->
+          <div class="selected-tags" v-if="selectedFilters.length > 0">
             <div class="tags-title">你的选择</div>
             <div class="tags-list">
               <!-- 循环显示每个选中的标签 -->
@@ -35,8 +34,6 @@
             :title="filterGroup.title"
             :name="filterGroup.name"
           >
-
-
             <!-- filter-options 是筛选选项的容器 -->
             <!-- :class="{ 'color-options': filterGroup.isColor }" 这是一个动态绑定 class 的语法 -->
             <!-- 它的意思是：如果 filterGroup.isColor 为 true，就给这个 div 添加 color-options 这个 class，否则就不添加 -->
@@ -50,9 +47,8 @@
                 :key="option.value"
                 :class="{ 'color-item': filterGroup.isColor }"
                 :title="option.text"
-                 @click="handleFilterClick(filterGroup, option)"
+                @click="handleFilterClick(filterGroup, option)"
               >
-
                 <!-- v-if="!filterGroup.isColor" 判断当前筛选组是否是颜色选项 -->
                 <!-- 如果不是颜色选项（比如排序方式、性别/年龄），就显示单选按钮 -->
                 <input
@@ -66,10 +62,15 @@
                 <div
                   v-if="filterGroup.isColor"
                   class="color-circle"
-                  :style="{ 'background-color': option.value, border: option.color === '#ffffff' ? '1px solid #ddd' : 'none' }"
+                  :style="{
+                    'background-color': option.value,
+                    border: option.color === '#ffffff' ? '1px solid #ddd' : 'none',
+                  }"
                 ></div>
                 <!-- 显示选项的文本内容 -->
-                <span :class="{ 'color-text': filterGroup.isColor || filterGroup.name === '8' }">{{ option.label  || option.name}}</span>
+                <span :class="{ 'color-text': filterGroup.isColor || filterGroup.name === '8' }">{{
+                  option.label || option.name
+                }}</span>
               </label>
             </div>
           </el-collapse-item>
@@ -113,7 +114,6 @@ import SiteFooter from '@/components/Footer/SiteFooter.vue' // 页脚
 import { useRouter, useRoute } from 'vue-router' // 导入路由功能
 import { ref, computed } from 'vue' // 导入ref和computed
 import { categoryFilters } from '@/data/filterOptions.js' // 导入筛选数据
-
 
 // 获取路由器实例，用于页面跳转
 const router = useRouter()
@@ -165,24 +165,26 @@ const selectedFilters = ref([]) // 用来存储用户选择的标签
 
 // 点击筛选项时，把它加到"你的选择"里 filterGroup是筛选组的信息（有很多像是"性别/年龄"这样的组），option 具体的选项（比如"女士"）
 const handleFilterClick = (filterGroup, option) => {
-    // 🔍 第一步：检查这个商品是不是已经挑过了
-    const alreadyPicked = selectedFilters.value.find(
-      // item是数组里的每一个元素，item.id是元素的id，item.id === `${filterGroup.name}-${option.value}` 是判断元素的id是否等于筛选组的名字和选项的值拼接起来的字符串
-      item =>  item.id ===`${filterGroup.name}-${option.value}`
-    )
-     // 🎯 第二步：如果没挑过，就加进去
-     if(!alreadyPicked){
-      selectedFilters.value.push({ //push是数组的方法，用来添加元素到数组末尾
-        id: `${filterGroup.name}-${option.value}`, // 给标签一个唯一的身份证号 避免重复
-        label: option.label || option.name, // 标签上显示的文字（用户能看懂的）。
-        value: option.value, // 标签的值
-      })
-     }
+  // 🔍 第一步：检查这个商品是不是已经挑过了
+  const alreadyPicked = selectedFilters.value.find(
+    // item是数组里的每一个元素，item.id是元素的id，item.id === `${filterGroup.name}-${option.value}` 是判断元素的id是否等于筛选组的名字和选项的值拼接起来的字符串
+    (item) => item.id === `${filterGroup.name}-${option.value}`,
+  )
+  // 🎯 第二步：如果没挑过，就加进去
+  if (!alreadyPicked) {
+    selectedFilters.value.push({
+      //push是数组的方法，用来添加元素到数组末尾
+      id: `${filterGroup.name}-${option.value}`, // 给标签一个唯一的身份证号 避免重复
+      label: option.label || option.name, // 标签上显示的文字（用户能看懂的）。
+      value: option.value, // 标签的值
+    })
+  }
 }
 
 // 点小叉叉时，把标签从篮子里拿出来
-const removeTag = (tagId) => {//tagId是标签的id  是要删除的标签的id
-  selectedFilters.value = selectedFilters.value.filter(tag => tag.id !== tagId) // filter是数组的方法，用来遍历数组，返回一个新数组
+const removeTag = (tagId) => {
+  //tagId是标签的id  是要删除的标签的id
+  selectedFilters.value = selectedFilters.value.filter((tag) => tag.id !== tagId) // filter是数组的方法，用来遍历数组，返回一个新数组
 }
 </script>
 
@@ -239,12 +241,12 @@ const removeTag = (tagId) => {//tagId是标签的id  是要删除的标签的id
   min-height: 32px; /* 确保有足够的高度 */
   gap: 8px; /* 单选按钮和文字之间的间距 */
   font-size: 14px;
-  font-weight:520;
+  font-weight: 520;
   color: #000000;
 }
 .filter-options label:hover {
   color: #000000;
-  font-weight:620;
+  font-weight: 620;
 }
 
 .filter-options input[type='checkbox'],
@@ -336,7 +338,7 @@ const removeTag = (tagId) => {//tagId是标签的id  是要删除的标签的id
 
 .tags-list {
   display: flex;
-  flex-wrap: wrap;  /* 标签太多就自动换行 */
+  flex-wrap: wrap; /* 标签太多就自动换行 */
   gap: 8px;
 }
 
@@ -345,7 +347,7 @@ const removeTag = (tagId) => {//tagId是标签的id  是要删除的标签的id
   align-items: center;
   background-color: white;
   padding: 6px 12px;
-  border-radius: 20px;  /* 圆角标签，更好看 */
+  border-radius: 20px; /* 圆角标签，更好看 */
   border: 1px solid #ddd;
   font-size: 14px;
 }
@@ -360,6 +362,92 @@ const removeTag = (tagId) => {//tagId是标签的id  是要删除的标签的id
 }
 
 .tag-item button:hover {
-  color: #ff0000;  /* 鼠标悬停时变红 */
+  color: #ff0000; /* 鼠标悬停时变红 */
+}
+
+/* ========== 移动端响应式布局 ========== */
+@media (max-width: 768px) {
+  /* 主容器 */
+  .main-content {
+    flex-direction: column;
+    padding: 10px;
+    gap: 20px;
+  }
+
+  /* 左侧筛选区域 */
+  .letf {
+    width: 100%;
+    padding: 12px 16px;
+  }
+
+  .el-collapse {
+    width: 100%;
+  }
+
+  :deep(.el-collapse-item__header) {
+    font-size: 14px;
+    height: 48px;
+  }
+
+  :deep(.el-collapse-item__arrow) {
+    font-size: 20px;
+  }
+
+  .filter-options label {
+    font-size: 13px;
+    min-height: 28px;
+  }
+
+  /* 你的选择区域 */
+  .selected-tags {
+    padding: 10px;
+    margin-bottom: 12px;
+  }
+
+  .tags-title {
+    font-size: 14px;
+  }
+
+  .tag-item {
+    padding: 4px 10px;
+    font-size: 13px;
+  }
+
+  /* 商品展示区域 */
+  .product-display-area {
+    width: 100%;
+  }
+
+  /* 返回首页按钮 */
+  .back-home-btn {
+    margin: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 5px;
+  }
+
+  .letf {
+    padding: 10px 12px;
+  }
+
+  :deep(.el-collapse-item__header) {
+    font-size: 13px;
+    height: 44px;
+  }
+
+  .filter-options label {
+    font-size: 12px;
+  }
+
+  .tags-title {
+    font-size: 13px;
+  }
+
+  .tag-item {
+    font-size: 12px;
+  }
 }
 </style>
